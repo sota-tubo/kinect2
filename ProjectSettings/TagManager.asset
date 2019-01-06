@@ -11,6 +11,9 @@ TagManager:
   - Green
   - White
   - Color
+  - Cyan
+  - Magenta
+  - Yellow
   layers:
   - Default
   - TransparentFX

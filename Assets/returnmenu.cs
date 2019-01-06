@@ -10,9 +10,11 @@ public class returnmenu : MonoBehaviour {
 	[SerializeField]
 	private Slider slider;
 
+    private AudioSource audio;
+
 	// Use this for initialization
 	void Start () {
-
+        audio = GetComponent<AudioSource>();
 	}
 
 	// Update is called once per frame
@@ -22,8 +24,11 @@ public class returnmenu : MonoBehaviour {
 		if (touch1.touches == true && touch2.touches == true)
 		{
 			slider.value += Time.deltaTime;
-			if (slider.value >= 1.0f)
-				SceneManager.LoadScene("Title");
+            if (slider.value >= 1.0f)
+            {
+                audio.Play();
+                SceneManager.LoadScene("Title");
+            }
 		}
 	}
 }

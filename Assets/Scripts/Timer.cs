@@ -7,9 +7,8 @@ using UnityEngine.SceneManagement;
 public class Timer : MonoBehaviour {
 
     public Text time;
-    [SerializeField]
-    public static float timeleft;
-    public static bool isEnd = true;
+    public float timeleft = 30f;
+    public bool isEnd = true;
     public bool canStart { get; set; }
     [SerializeField]
     private int Count = 3;
@@ -17,7 +16,7 @@ public class Timer : MonoBehaviour {
 
     // Use this for initialization
     void Start () {
-		timeleft = 30f;
+		timeleft = timeleft;
         canStart = false;
         counton = true;
 	}

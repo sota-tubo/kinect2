@@ -14,7 +14,7 @@ public class EnemyCollision : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        sphere = GameObject.Find("Sphere");
+        sphere = GameObject.Find("New Sprite");
         scoretext = GameObject.Find("ScoreText");
         vscore = scoretext.GetComponent<Vis_score>();
         scorenum = 50;
@@ -38,13 +38,13 @@ public class EnemyCollision : MonoBehaviour {
         {
             if (sphere.gameObject.GetComponent<Renderer>().material.color != Color.white)
             {
-                if (this.gameObject.GetComponent<Renderer>().material.color == Color.white)
+                if (gameObject.tag == "White")
                 {
                     Destroy(gameObject);
                     audio[0].Play();
                     vscore.scoreup(scorenum);
                 }
-                else if (this.gameObject.GetComponent<Renderer>().material.color == Color.red && sphere.gameObject.GetComponent<Renderer>().material.color != Color.red && sphere.gameObject.GetComponent<Renderer>().material.color != Color.magenta && sphere.gameObject.GetComponent<Renderer>().material.color != Color.yellow)
+                else if (gameObject.tag == "Red" && sphere.gameObject.GetComponent<Renderer>().material.color != Color.red && sphere.gameObject.GetComponent<Renderer>().material.color != Color.magenta && sphere.gameObject.GetComponent<Renderer>().material.color != Color.yellow)
                 {
                     Destroy(gameObject);
                     audio[0].Play();
@@ -56,7 +56,7 @@ public class EnemyCollision : MonoBehaviour {
                     }
 
                 }
-                else if (this.gameObject.GetComponent<Renderer>().material.color == Color.blue && sphere.gameObject.GetComponent<Renderer>().material.color != Color.blue && sphere.gameObject.GetComponent<Renderer>().material.color != Color.cyan && sphere.gameObject.GetComponent<Renderer>().material.color != Color.magenta)
+                else if (gameObject.tag == "Blue" && sphere.gameObject.GetComponent<Renderer>().material.color != Color.blue && sphere.gameObject.GetComponent<Renderer>().material.color != Color.cyan && sphere.gameObject.GetComponent<Renderer>().material.color != Color.magenta)
                 {
                     Destroy(gameObject);
                     audio[0].Play();
@@ -68,7 +68,7 @@ public class EnemyCollision : MonoBehaviour {
                     }
 
                 }
-                else if (this.gameObject.GetComponent<Renderer>().material.color == Color.green && sphere.gameObject.GetComponent<Renderer>().material.color != Color.green && sphere.gameObject.GetComponent<Renderer>().material.color != Color.cyan && sphere.gameObject.GetComponent<Renderer>().material.color != Color.yellow)
+                else if (gameObject.tag == "Green" && sphere.gameObject.GetComponent<Renderer>().material.color != Color.green && sphere.gameObject.GetComponent<Renderer>().material.color != Color.cyan && sphere.gameObject.GetComponent<Renderer>().material.color != Color.yellow)
                 {
                     Destroy(gameObject);
                     audio[0].Play();
@@ -80,19 +80,19 @@ public class EnemyCollision : MonoBehaviour {
                     }
 
                 }
-                else if (this.gameObject.GetComponent<Renderer>().material.color == Color.cyan && sphere.gameObject.GetComponent<Renderer>().material.color == Color.red)
+                else if (gameObject.tag == "Cyan" && sphere.gameObject.GetComponent<Renderer>().material.color == Color.red)
                 {
                     Destroy(gameObject);
                     audio[0].Play();
                     vscore.scoreup(scorenum);
                 }
-                else if (this.gameObject.GetComponent<Renderer>().material.color == Color.magenta && sphere.gameObject.GetComponent<Renderer>().material.color == Color.green)
+                else if (gameObject.tag == "Magenta" && sphere.gameObject.GetComponent<Renderer>().material.color == Color.green)
                 {
                     Destroy(gameObject);
                     audio[0].Play();
                     vscore.scoreup(scorenum);
                 }
-                else if (this.gameObject.GetComponent<Renderer>().material.color == Color.yellow && sphere.gameObject.GetComponent<Renderer>().material.color == Color.blue)
+                else if (gameObject.tag == "Yellow" && sphere.gameObject.GetComponent<Renderer>().material.color == Color.blue)
                 {
                     Destroy(gameObject);
                     audio[0].Play();

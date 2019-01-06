@@ -16,12 +16,14 @@ public class ColorChange : MonoBehaviour
 	[SerializeField]
 	private SpriteRenderer backcolor;
     private AudioSource audio;
+    private bool playSE;
 
     // Use this for initialization
     void Start()
     {
         audio = GetComponent<AudioSource>();
 		check = true;
+        playSE = true;
     }
 
     // Update is called once per frame
@@ -61,28 +63,27 @@ public class ColorChange : MonoBehaviour
             
 			if (mixSlider.value <= 0f && slider.value >= 2.0f)
 			{
-				if (this.gameObject.name == "Green")
+                if (playSE == true)
+                {
+                    playSE = false;
+                    audio.Play();
+                }
+
+                if (this.gameObject.name == "Green")
 				{
-					audio.Play();
 					sphere.GetComponent<Renderer>().material.color = Color.green;
 				}
 				else if (this.gameObject.name == "Red")
 				{
-					audio.Play();
 					sphere.GetComponent<Renderer>().material.color = Color.red;
-
 				}
 				else if (this.gameObject.name == "Blue")
 				{
-					audio.Play();
 					sphere.GetComponent<Renderer>().material.color = Color.blue;
-
 				}
 				else if (this.gameObject.name == "White")
 				{
-					audio.Play();
 					sphere.GetComponent<Renderer>().material.color = Color.white;
-
 				}
 			}
         }
@@ -98,6 +99,7 @@ public class ColorChange : MonoBehaviour
 			checker.touchColor.Remove(gameObject);
 			checker.touchCount--;
             mixSlider.value = 0;
+            playSE = true;
         }
 
     }

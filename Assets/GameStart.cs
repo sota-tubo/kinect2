@@ -11,9 +11,11 @@ public class GameStart : MonoBehaviour {
     [SerializeField]
     private Slider slider;
 
+    private AudioSource audio;
+
 	// Use this for initialization
 	void Start () {
-        
+        audio = GetComponent<AudioSource>();
     }
 	
 	// Update is called once per frame
@@ -24,7 +26,10 @@ public class GameStart : MonoBehaviour {
         {
             slider.value += Time.deltaTime;
             if (slider.value >= 1.0f)
+            {
+                audio.Play();
                 SceneManager.LoadScene("test");
+            }
         }
 	}
 }

@@ -10,14 +10,20 @@ public class MoveEnemy : MonoBehaviour {
     [SerializeField]
 	private GameObject player;
 
+    private Timer timer;
+
 	// Use this for initialization
 	void Start () {
 		speed = 4.5f;
-	}
+
+        timer = GameObject.Find("Time").GetComponent<Timer>();
+
+        //player.transform.position = new Vector3(0f, 0f, 0f);
+    }
 	
 	// Update is called once per frame
 	void Update () {
-		if (Timer.timeleft <= 0f)
+		if (timer.timeleft <= 0f)
         {
             Destroy(gameObject);
         }
